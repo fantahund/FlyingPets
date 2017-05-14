@@ -1,0 +1,10 @@
+name: EpicPets
+author: Feeps
+version: 0.2
+main: be.feeps.epicpets.Main
+description: Only Feeps know the reals pets
+commands:
+    epicpets:
+        usage: /<command>
+        description: The epicpets commands
+        aliases: [ep]
