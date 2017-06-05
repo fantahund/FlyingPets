@@ -56,7 +56,6 @@ public class Main extends JavaPlugin{
         File[] listOfFiles = animationFile.listFiles();
         if(listOfFiles.length == 0){
             InputStream defaultAnimation = getClassLoader().getResourceAsStream("be/feeps/epicpets/animations/walk.epicpetsani");
-
             try{
                 FileOutputStream fos = new FileOutputStream("plugins/EpicPets/Animations/walk.epicpetsani");
                 byte[] buf = new byte[2048];
