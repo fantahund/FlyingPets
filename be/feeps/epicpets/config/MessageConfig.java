@@ -33,7 +33,6 @@ public class MessageConfig extends Skyoconfig {
     @ConfigOptions(name = "inventories.AnimationsInv.items")
     public HashMap<String, String> invAnimations = new HashMap<String, String>() {
         {
-            put("Particles", "&eParticles");
             put("Back", "&7Back");
             put("Reset", "&cReset animation");
         }
@@ -54,9 +53,9 @@ public class MessageConfig extends Skyoconfig {
         }
     };
 
-    @ConfigOptions(name = "inventories.SkinsInv.name")
+    @ConfigOptions(name = "inventories.EditInv.name")
     public String invNameEdit = "&7Edit your pet";
-    @ConfigOptions(name = "inventories.SkinsInv.items")
+    @ConfigOptions(name = "inventories.EditInv.items")
     public HashMap<String, String> invEdit = new HashMap<String, String>() {
         {
             put("Name", "&6Name your pet");
@@ -71,8 +70,8 @@ public class MessageConfig extends Skyoconfig {
     @ConfigOptions(name = "inventories.SkinsInv.items")
     public HashMap<String, String> invSkins = new HashMap<String, String>() {
         {
-            put("PlayerHead", "&6Use a player head");
             put("Back", "&7Back");
+            put("PlayerHead", "&6Use a player head");
         }
     };
 

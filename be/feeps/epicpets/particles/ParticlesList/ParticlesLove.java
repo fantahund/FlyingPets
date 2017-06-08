@@ -5,8 +5,6 @@ import be.feeps.epicpets.utils.MathUtils;
 import be.feeps.epicpets.utils.ParticleEffect;
 import org.bukkit.entity.Player;
 
-import java.util.Random;
-
 /**
  * Created by feeps on 08/06/2017.
  */

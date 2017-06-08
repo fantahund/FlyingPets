@@ -22,23 +22,15 @@ public abstract class EpicParticles {
     }
 
     public enum EpicParticlesType {
-        RING("Ring"),
-        HELIX("Helix"),
-        SPARKS("Sparks"),
-        FROSTLORD("FrostLord"),
-        LOVE("Love");
+        RING,
+        HELIX,
+        SPARKS,
+        FROSTLORD,
+        LOVE;
 
-        private String name;
 
-        EpicParticlesType(String name)
-        {
-            this.name = name;
-        }
+        EpicParticlesType() {}
 
-        public String getName()
-        {
-            return this.name;
-        }
     }
 
 }
