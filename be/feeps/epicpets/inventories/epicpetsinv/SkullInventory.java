@@ -25,7 +25,7 @@ public class SkullInventory extends EpicInventory {
 
     @Override
     public String name() {
-        return Main.getI().getMsgCfg().invNameSkins;
+        return MessageUtil.translate(Main.getI().getMsgCfg().invNameSkins);
     }
 
     @Override
@@ -43,7 +43,11 @@ public class SkullInventory extends EpicInventory {
             String name = SkinsConfig.getInstance().getData().getString("skins." + key + ".name");
             String texture = SkinsConfig.getInstance().getData().getString("skins." + key + ".texture");
             String slot = SkinsConfig.getInstance().getData().getString("skins." + key + ".slot");
+
             this.setItem(SkinLoader.getCustomSkull(texture), Integer.parseInt(slot) , MessageUtil.translate(name), null);
+
+
+
         }
     }
 
