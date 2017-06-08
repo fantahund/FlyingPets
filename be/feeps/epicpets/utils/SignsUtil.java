@@ -16,10 +16,11 @@ public class SignsUtil {
     public static void openSign(Player p, Block b) {
         try {
             Object world = b.getWorld().getClass().getMethod("getHandle").invoke(b.getWorld());
-            Object blockPos = Reflection.getMinecraftClass("BlockPosition").getConstructor(int.class, int.class, int.class).newInstance(b.getX(), b.getY(), b.getZ());
-            Object sign = world.getClass().getMethod("getTileEntity", Reflection.getMinecraftClass("BlockPosition")).invoke(world, blockPos);
+
+            Object blockPos = Reflection.PackageType.MINECRAFT_SERVER.getClass("BlockPosition").getConstructor(int.class, int.class, int.class).newInstance(b.getX(), b.getY(), b.getZ());
+            Object sign = world.getClass().getMethod("getTileEntity", Reflection.PackageType.MINECRAFT_SERVER.getClass("BlockPosition")).invoke(world, blockPos);
             Object player = p.getClass().getMethod("getHandle").invoke(p);
-            player.getClass().getMethod("openSign", Reflection.getMinecraftClass("TileEntitySign")).invoke(player, sign);
+            player.getClass().getMethod("openSign", Reflection.PackageType.MINECRAFT_SERVER.getClass("TileEntitySign")).invoke(player, sign);
         } catch (Exception e) {
             e.printStackTrace();
         }

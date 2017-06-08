@@ -11,15 +11,24 @@ public enum EpicPermissions {
     SPAWNPET("epicpets.pet.spawn"),
     REMOVEPET("epicpets.pet.remove"),
     RENAMEPET("epicpets.pet.rename"),
+    GIVEITEM("epicpets.pet.item"),
 
     OPENGUIMAIN("epicpets.gui.open.main"),
     OPENGUIANIMATIONS("epicpets.gui.open.animations"),
     OPENGUIPREFERENCES("epicpets.gui.open.preferences"),
+    OPENGUIPARTICLES("epicpets.gui.open.particles"),
+    OPENGUIEDIT("epicpets.gui.open.edit"),
 
     OPENGUIHELMET("epicpets.gui.open.helmet"),
     OPENGUICHESTPLATE("epicpets.gui.open.chestplate"),
     OPENGUILEGGINGS("epicpets.gui.open.leggings"),
     OPENGUIBOOTS("epicpets.gui.open.boots"),
+
+    PARTICLESLOVE("epicpets.particles.love"),
+    PARTICLESBLOODHELIX("epicpets.particles.bloodhelix"),
+    PARTICLESFROSTLORD("epicpets.particles.frostlord"),
+    PARTICLESRING("epicpets.particles.ring"),
+    PARTICLESSPARKS("epicpets.particles.sparks"),
 
     PREFERENCESSETSMALL("epicpets.gui.action.preferences.setsmall"),
     PREFERENCESSHOWNAME("epicpets.gui.action.preferences.showname"),

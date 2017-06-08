@@ -33,10 +33,38 @@ public class MessageConfig extends Skyoconfig {
     @ConfigOptions(name = "inventories.AnimationsInv.items")
     public HashMap<String, String> invAnimations = new HashMap<String, String>() {
         {
+            put("Particles", "&eParticles");
             put("Back", "&7Back");
             put("Reset", "&cReset animation");
         }
     };
+
+    @ConfigOptions(name = "inventories.ParticlesInv.name")
+    public String invNameParticles = "&7Particles";
+    @ConfigOptions(name = "inventories.ParticlesInv.items")
+    public HashMap<String, String> invParticles = new HashMap<String, String>() {
+        {
+            put("Love","&cLove");
+            put("FrostLord","&fFrostLord");
+            put("BloodHelix","&cBloodHelix");
+            put("Sparks","&aSparks");
+            put("Ring","&dRing");
+            put("Back", "&7Back");
+            put("Reset", "&cReset your effect");
+        }
+    };
+
+    @ConfigOptions(name = "inventories.SkinsInv.name")
+    public String invNameEdit = "&7Edit your pet";
+    @ConfigOptions(name = "inventories.SkinsInv.items")
+    public HashMap<String, String> invEdit = new HashMap<String, String>() {
+        {
+            put("Name", "&6Name your pet");
+            put("Preferences", "&7Preferences");
+            put("Back", "&7Back");
+        }
+    };
+
 
     @ConfigOptions(name = "inventories.SkinsInv.name")
     public String invNameSkins = "&7Skins";
@@ -55,10 +83,10 @@ public class MessageConfig extends Skyoconfig {
         {
             put("RemovePet", "&cRemove your pet");
             put("SpawnPet", "&fSpawn your pet");
-            put("Preferences", "&7Preferences");
-            put("Name", "&6Name your pet");
-            put("Particles", "&eAnimations");
+            put("Animations", "&eAnimations");
             put("Helmet", "&6Helmet");
+            put("Edit", "&6Edit your pet");
+            put("Particles", "&6Particles");
             put("Chestplate", "&6Chestplate");
             put("Leggings", "&6Leggings");
             put("Boots", "&6Boots");

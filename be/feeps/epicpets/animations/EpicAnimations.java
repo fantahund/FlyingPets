@@ -17,7 +17,7 @@ public class EpicAnimations {
     public EpicAnimations(Player player, String nameFile){
         this.player = player;
         this.epicPetsPlayer = EpicPetsPlayer.instanceOf(player);
-        this.epicPetsPlayer.setAnim(this);
+        this.epicPetsPlayer.setEpicAnim(this);
 
         animation = new ArmorStandAnimation(new File("plugins/EpicPets/Animations", nameFile), epicPetsPlayer.getPet().getArmorStand());
 
@@ -33,7 +33,7 @@ public class EpicAnimations {
         this.animation.remove();
         this.animation.removeCurrentCache();
         this.animation = null;
-        this.epicPetsPlayer.setAnim(null);
+        this.epicPetsPlayer.setEpicAnim(null);
         this.epicPetsPlayer.getPet().getArmorStand().getEquipment().clear();
         this.epicPetsPlayer.getPet().getArmorStand().setLeftArmPose(new EulerAngle(Math.toRadians(0f),0f,0f));
         this.epicPetsPlayer.getPet().getArmorStand().setRightArmPose(new EulerAngle(Math.toRadians(0f),0f,0f));

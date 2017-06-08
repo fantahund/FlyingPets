@@ -41,9 +41,9 @@ public class MainInventory extends EpicInventory {
             this.setItem(new ItemStack(Material.NETHER_STAR), 10, MessageUtil.translate(Main.getI().getMsgCfg().invMain.get("SpawnPet")), null);
         }
 
-        this.setItem(new ItemStack(Material.NAME_TAG), 20, MessageUtil.translate(Main.getI().getMsgCfg().invMain.get("Name")), null);
-        this.setItem(new ItemStack(Material.GLOWSTONE_DUST), 16, MessageUtil.translate(Main.getI().getMsgCfg().invMain.get("Particles")), null);
-        this.setItem(new ItemStack(Material.BREWING_STAND_ITEM), 24, MessageUtil.translate(Main.getI().getMsgCfg().invMain.get("Preferences")), null);
+        this.setItem(new ItemStack(Material.BOOK), 20, MessageUtil.translate(Main.getI().getMsgCfg().invMain.get("Edit")), null);
+        this.setItem(new ItemStack(Material.GLOWSTONE_DUST), 16, MessageUtil.translate(Main.getI().getMsgCfg().invMain.get("Animations")), null);
+        this.setItem(new ItemStack(Material.BLAZE_POWDER), 24, MessageUtil.translate(Main.getI().getMsgCfg().invMain.get("Particles")), null);
 
         this.setItem(new ItemStack(Material.LEATHER_HELMET), 4, MessageUtil.translate(Main.getI().getMsgCfg().invMain.get("Helmet")), null);
         this.setItem(new ItemStack(Material.LEATHER_CHESTPLATE), 13, MessageUtil.translate(Main.getI().getMsgCfg().invMain.get("Chestplate")), null);
@@ -92,16 +92,19 @@ public class MainInventory extends EpicInventory {
                     player.closeInventory();
                 }
                 break;
-            case NAME_TAG:
-                if(EpicPermissions.RENAMEPET.hasPerm(player)){
-                    player.closeInventory();
-                    if(epicPetsPlayer.getPet() != null)
-                        SignsUtil.setSign(player, "setName");
-                }
-                break;
             case GLOWSTONE_DUST:
                 if(EpicPermissions.OPENGUIANIMATIONS.hasPerm(player)){
                     new AnimationsInv().open(player);
+                }
+                break;
+            case BLAZE_POWDER:
+                if(EpicPermissions.OPENGUIPARTICLES.hasPerm(player)){
+                    new ParticlesInv().open(player);
+                }
+                break;
+            case BOOK:
+                if(EpicPermissions.OPENGUIEDIT.hasPerm(player)){
+                    new EditInv().open(player);
                 }
                 break;
             case SKULL_ITEM:
@@ -127,11 +130,6 @@ public class MainInventory extends EpicInventory {
             case LEATHER_BOOTS:
                 if(EpicPermissions.OPENGUIBOOTS.hasPerm(player)){
                     new ColorsSelectorInv(Material.LEATHER_BOOTS).open(player);
-                }
-                break;
-            case BREWING_STAND_ITEM:
-                if(EpicPermissions.OPENGUIPREFERENCES.hasPerm(player)){
-                    new PreferencesInventory().open(player);
                 }
                 break;
         }

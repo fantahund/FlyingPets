@@ -2,7 +2,6 @@ package be.feeps.epicpets.pets;
 
 import be.feeps.epicpets.EpicPetsPlayer;
 import be.feeps.epicpets.Main;
-import be.feeps.epicpets.animations.EpicAnimations;
 import be.feeps.epicpets.config.CacheConfig;
 import be.feeps.epicpets.config.SkinsConfig;
 import be.feeps.epicpets.inventories.ColorSkull;
@@ -18,11 +17,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.SkullMeta;
 import org.bukkit.metadata.FixedMetadataValue;
-
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-
 /**
  * Created by feeps on 3/04/17.
  */
@@ -93,14 +87,15 @@ public class DefaultPet{
     }
 
     public void remove(){
-        if(this.epicPetsPlayer.getAnim() != null){
-            this.epicPetsPlayer.getAnim().stop();
+        if(this.epicPetsPlayer.getEpicAnim() != null){
+            this.epicPetsPlayer.getEpicAnim().stop();
         }
 
         EpicPetsPlayer.instanceOf(this.player).setPet(null);
         this.name.remove();
         this.pet.remove();
-        this.epicPetsPlayer.setAnim(null);
+        this.epicPetsPlayer.setEpicAnim(null);
+        this.epicPetsPlayer.setEpicParticles(null);
     }
 
     public void update() {

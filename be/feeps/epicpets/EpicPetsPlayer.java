@@ -2,6 +2,7 @@ package be.feeps.epicpets;
 
 import be.feeps.epicpets.animations.EpicAnimations;
 import be.feeps.epicpets.inventories.EpicInventory;
+import be.feeps.epicpets.particles.EpicParticles;
 import be.feeps.epicpets.pets.DefaultPet;
 import org.bukkit.entity.Player;
 
@@ -18,69 +19,94 @@ public class EpicPetsPlayer {
     private DefaultPet pet;
     private EpicInventory epicInv;
     private EpicAnimations epicAnim;
+    private EpicParticles epicParticles;
 
-    public EpicPetsPlayer(Player paramPlayer) {
-        this.player = paramPlayer;
-
+    public EpicPetsPlayer(Player player)
+    {
+        this.player = player;
     }
 
-    public static EpicPetsPlayer instanceOf(Player paramPlayer) {
-        //JAVA 8 METHOD
-        //epicPlayers.putIfAbsent(paramPlayer.getUniqueId(), new EpicPetsPlayer(paramPlayer));
-        if(!epicPlayers.containsKey(paramPlayer.getUniqueId())){
-            epicPlayers.put(paramPlayer.getUniqueId(), new EpicPetsPlayer(paramPlayer));
+    public static EpicPetsPlayer instanceOf(Player player)
+    {
+        if(!epicPlayers.containsKey(player.getUniqueId())){
+            epicPlayers.put(player.getUniqueId(), new EpicPetsPlayer(player));
         }
 
-        if (epicPlayers.containsKey(paramPlayer.getUniqueId())) {
-            (epicPlayers.get(paramPlayer.getUniqueId())).updatePlayer(paramPlayer);
+        if (epicPlayers.containsKey(player.getUniqueId())) {
+            (epicPlayers.get(player.getUniqueId())).updatePlayer(player);
         }
-        return epicPlayers.get(paramPlayer.getUniqueId());
+        return epicPlayers.get(player.getUniqueId());
     }
 
-    public Player getPlayer(){
+    public Player getPlayer()
+    {
         return this.player;
     }
 
-    public DefaultPet getPet(){
+    public DefaultPet getPet()
+    {
         return this.pet;
     }
 
-    public void setPet(DefaultPet pet){
+    public void setPet(DefaultPet pet)
+    {
         this.pet = pet;
     }
 
-    public EpicInventory getInventory(){
+    /**
+     * @return the current EpicInventory of a player
+     */
+    public EpicInventory getEpicInv()
+    {
         return this.epicInv;
     }
 
-    public void setInv(EpicInventory epicInv){
+    /**
+     * Set the current EpicInventory of a player
+     */
+    public void setEpicInv(EpicInventory epicInv)
+    {
         this.epicInv = null;
         this.epicInv = epicInv;
     }
 
-    public EpicAnimations getAnim(){
+    public EpicAnimations getEpicAnim()
+    {
         return this.epicAnim;
     }
 
-    public void setAnim(EpicAnimations epicAnim){
+    public void setEpicAnim(EpicAnimations epicAnim)
+    {
         this.epicAnim = null;
         this.epicAnim = epicAnim;
     }
 
+    public EpicParticles getEpicParticles()
+    {
+        return this.epicParticles;
+    }
 
-    public static Map<UUID, EpicPetsPlayer>  getEpicPlayers(){
+    public void setEpicParticles(EpicParticles epicParticles)
+    {
+        this.epicParticles = null;
+        this.epicParticles = epicParticles;
+    }
+
+    public static Map<UUID, EpicPetsPlayer>  getEpicPlayers()
+    {
         return epicPlayers;
     }
 
-    public void updatePlayer(Player player){
+    public void updatePlayer(Player player)
+    {
         this.player = player;
     }
 
-    public void removePet(){
+    public void removePet()
+    {
         if(this.pet != null){
             this.pet.remove();
         }
         this.pet = null;
-
     }
 }

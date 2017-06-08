@@ -47,15 +47,16 @@ public class AnimationsInv extends EpicInventory {
             new MainInventory().open(player);
         }
 
+
         if(current.getType() == Material.BARRIER){
-            if(epicPetsPlayer.getAnim() != null){
-                epicPetsPlayer.getAnim().stop();
+            if(epicPetsPlayer.getEpicAnim() != null){
+                epicPetsPlayer.getEpicAnim().stop();
                 this.cache.getData().set(player.getUniqueId().toString() + ".pet.currentanimation", "NULL");
             }
         }
         if(current.getType() != Material.ARROW && current.getType() != Material.BARRIER){
-            if(epicPetsPlayer.getAnim() != null){
-                epicPetsPlayer.getAnim().stop();
+            if(epicPetsPlayer.getEpicAnim() != null){
+                epicPetsPlayer.getEpicAnim().stop();
             }
             if(epicPetsPlayer.getPet() != null) {
 
@@ -79,7 +80,7 @@ public class AnimationsInv extends EpicInventory {
                                     name = (line.split(" ")[1]);
                                     if(current.getItemMeta().getDisplayName().equalsIgnoreCase(MessageUtil.translate(name))){
                                         if(player.hasPermission(permission)){
-                                            epicPetsPlayer.setAnim(new EpicAnimations(player, listOfFiles[i].getName()));
+                                            epicPetsPlayer.setEpicAnim(new EpicAnimations(player, listOfFiles[i].getName()));
                                         }else{
                                             player.sendMessage(MessageUtil.translate(Main.getI().getMsgCfg().noPerm));
                                         }

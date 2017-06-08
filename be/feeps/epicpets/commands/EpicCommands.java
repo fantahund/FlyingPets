@@ -68,7 +68,7 @@ public class EpicCommands implements CommandExecutor {
                     return true;
                 //===============================================
                 } else if (args[0].equalsIgnoreCase("item")) {
-                    if(EpicPermissions.REMOVEPET.hasPerm(player)){
+                    if(EpicPermissions.GIVEITEM.hasPerm(player)){
                         ItemsUtil.add(new ItemStack(Material.getMaterial(Main.getI().getMainCfg().itemOnJoin.get("material"))), player.getInventory(), Integer.parseInt(Main.getI().getMainCfg().itemOnJoin.get("slot")),
                                 MessageUtil.translate(Main.getI().getMainCfg().itemOnJoin.get("name")), Arrays.asList(new String[] { "" }));
                     }
