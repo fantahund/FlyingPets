@@ -193,7 +193,7 @@ public enum ParticleEffect {
      */
     SPELL_WITCH("witchMagic", 17, -1),
     /**
-     * A particle effect which is displayed by blocks beneath a water source:
+     * A particle effect which is displayed by BLOCKS beneath a water source:
      * <ul>
      * <li>It looks like a blue drip
      * <li>The speed value has no influence on this particle effect
@@ -201,7 +201,7 @@ public enum ParticleEffect {
      */
     DRIP_WATER("dripWater", 18, -1),
     /**
-     * A particle effect which is displayed by blocks beneath a lava source:
+     * A particle effect which is displayed by BLOCKS beneath a lava source:
      * <ul>
      * <li>It looks like an orange drip
      * <li>The speed value has no influence on this particle effect
@@ -233,7 +233,7 @@ public enum ParticleEffect {
      */
     TOWN_AURA("townaura", 22, -1, ParticleProperty.DIRECTIONAL),
     /**
-     * A particle effect which is displayed by note blocks:
+     * A particle effect which is displayed by note BLOCKS:
      * <ul>
      * <li>It looks like a colored note
      * <li>The speed value causes the particle to be colored green when set to 0
@@ -344,7 +344,7 @@ public enum ParticleEffect {
      */
     ITEM_CRACK("iconcrack", 36, -1, ParticleProperty.DIRECTIONAL, ParticleProperty.REQUIRES_DATA),
     /**
-     * A particle effect which is displayed when breaking blocks or sprinting:
+     * A particle effect which is displayed when breaking BLOCKS or sprinting:
      * <ul>
      * <li>It looks like a little piece with a block texture
      * <li>The speed value has no influence on this particle effect
@@ -383,8 +383,8 @@ public enum ParticleEffect {
      */
     MOB_APPEARANCE("mobappearance", 41, 8);
 
-    private static final Map<String, ParticleEffect> NAME_MAP = new HashMap<String, ParticleEffect>();
-    private static final Map<Integer, ParticleEffect> ID_MAP = new HashMap<Integer, ParticleEffect>();
+    private static final Map<String, ParticleEffect> NAME_MAP = new HashMap<>();
+    private static final Map<Integer, ParticleEffect> ID_MAP = new HashMap<>();
     private final String name;
     private final int id;
     private final int requiredVersion;
@@ -401,12 +401,12 @@ public enum ParticleEffect {
     /**
      * Construct a new particle effect
      *
-     * @param name Name of this particle effect
-     * @param id Id of this particle effect
+     * @param name            Name of this particle effect
+     * @param id              Id of this particle effect
      * @param requiredVersion Version which is required (1.x)
-     * @param properties Properties of this particle effect
+     * @param properties      Properties of this particle effect
      */
-    private ParticleEffect(String name, int id, int requiredVersion, ParticleProperty... properties) {
+    ParticleEffect(String name, int id, int requiredVersion, ParticleProperty... properties) {
         this.name = name;
         this.id = id;
         this.requiredVersion = requiredVersion;
@@ -455,10 +455,7 @@ public enum ParticleEffect {
      * @return Whether the particle effect is supported or not
      */
     public boolean isSupported() {
-        if (requiredVersion == -1) {
-            return true;
-        }
-        return ParticlePacket.getVersion() >= requiredVersion;
+        return requiredVersion == -1 || ParticlePacket.getVersion() >= requiredVersion;
     }
 
     /**
@@ -526,7 +523,7 @@ public enum ParticleEffect {
      * Determine if the data type for a particle effect is correct
      *
      * @param effect Particle effect
-     * @param data Particle data
+     * @param data   Particle data
      * @return Whether the data type is correct or not
      */
     private static boolean isDataCorrect(ParticleEffect effect, ParticleData data) {
@@ -537,7 +534,7 @@ public enum ParticleEffect {
      * Determine if the color type for a particle effect is correct
      *
      * @param effect Particle effect
-     * @param color Particle color
+     * @param color  Particle color
      * @return Whether the color type is correct or not
      */
     private static boolean isColorCorrect(ParticleEffect effect, ParticleColor color) {
@@ -550,12 +547,12 @@ public enum ParticleEffect {
      * @param offsetX Maximum distance particles can fly away from the center on the x-axis
      * @param offsetY Maximum distance particles can fly away from the center on the y-axis
      * @param offsetZ Maximum distance particles can fly away from the center on the z-axis
-     * @param speed Display speed of the particles
-     * @param amount Amount of particles
-     * @param center Center location of the effect
-     * @param range Range of the visibility
+     * @param speed   Display speed of the particles
+     * @param amount  Amount of particles
+     * @param center  Center location of the effect
+     * @param range   Range of the visibility
      * @throws ParticleVersionException If the particle effect is not supported by the server version
-     * @throws ParticleDataException If the particle effect requires additional data
+     * @throws ParticleDataException    If the particle effect requires additional data
      * @throws IllegalArgumentException If the particle effect requires water and none is at the center location
      * @see ParticlePacket
      * @see ParticlePacket#sendTo(Location, double)
@@ -579,12 +576,12 @@ public enum ParticleEffect {
      * @param offsetX Maximum distance particles can fly away from the center on the x-axis
      * @param offsetY Maximum distance particles can fly away from the center on the y-axis
      * @param offsetZ Maximum distance particles can fly away from the center on the z-axis
-     * @param speed Display speed of the particles
-     * @param amount Amount of particles
-     * @param center Center location of the effect
+     * @param speed   Display speed of the particles
+     * @param amount  Amount of particles
+     * @param center  Center location of the effect
      * @param players Receivers of the effect
      * @throws ParticleVersionException If the particle effect is not supported by the server version
-     * @throws ParticleDataException If the particle effect requires additional data
+     * @throws ParticleDataException    If the particle effect requires additional data
      * @throws IllegalArgumentException If the particle effect requires water and none is at the center location
      * @see ParticlePacket
      * @see ParticlePacket#sendTo(Location, List)
@@ -608,12 +605,12 @@ public enum ParticleEffect {
      * @param offsetX Maximum distance particles can fly away from the center on the x-axis
      * @param offsetY Maximum distance particles can fly away from the center on the y-axis
      * @param offsetZ Maximum distance particles can fly away from the center on the z-axis
-     * @param speed Display speed of the particles
-     * @param amount Amount of particles
-     * @param center Center location of the effect
+     * @param speed   Display speed of the particles
+     * @param amount  Amount of particles
+     * @param center  Center location of the effect
      * @param players Receivers of the effect
      * @throws ParticleVersionException If the particle effect is not supported by the server version
-     * @throws ParticleDataException If the particle effect requires additional data
+     * @throws ParticleDataException    If the particle effect requires additional data
      * @throws IllegalArgumentException If the particle effect requires water and none is at the center location
      * @see #display(float, float, float, float, int, Location, List)
      */
@@ -625,13 +622,13 @@ public enum ParticleEffect {
      * Displays a single particle which flies into a determined direction and is only visible for all players within a certain range in the world of @param center
      *
      * @param direction Direction of the particle
-     * @param speed Display speed of the particle
-     * @param center Center location of the effect
-     * @param range Range of the visibility
+     * @param speed     Display speed of the particle
+     * @param center    Center location of the effect
+     * @param range     Range of the visibility
      * @throws ParticleVersionException If the particle effect is not supported by the server version
-     * @throws ParticleDataException If the particle effect requires additional data
+     * @throws ParticleDataException    If the particle effect requires additional data
      * @throws IllegalArgumentException If the particle effect is not directional or if it requires water and none is at the center location
-     * @see ParticlePacket#ParticlePacket(ParticleEffect, Vector, float, boolean, ParticleData)
+     * @see ParticlePacket#ParticlePacket(Particles, Vector, float, boolean, ParticleData)
      * @see ParticlePacket#sendTo(Location, double)
      */
     public void display(Vector direction, float speed, Location center, double range) throws ParticleVersionException, ParticleDataException, IllegalArgumentException {
@@ -654,13 +651,13 @@ public enum ParticleEffect {
      * Displays a single particle which flies into a determined direction and is only visible for the specified players
      *
      * @param direction Direction of the particle
-     * @param speed Display speed of the particle
-     * @param center Center location of the effect
-     * @param players Receivers of the effect
+     * @param speed     Display speed of the particle
+     * @param center    Center location of the effect
+     * @param players   Receivers of the effect
      * @throws ParticleVersionException If the particle effect is not supported by the server version
-     * @throws ParticleDataException If the particle effect requires additional data
+     * @throws ParticleDataException    If the particle effect requires additional data
      * @throws IllegalArgumentException If the particle effect is not directional or if it requires water and none is at the center location
-     * @see ParticlePacket#ParticlePacket(ParticleEffect, Vector, float, boolean, ParticleData)
+     * @see ParticlePacket#ParticlePacket(Particles, Vector, float, boolean, ParticleData)
      * @see ParticlePacket#sendTo(Location, List)
      */
     public void display(Vector direction, float speed, Location center, List<Player> players) throws ParticleVersionException, ParticleDataException, IllegalArgumentException {
@@ -683,11 +680,11 @@ public enum ParticleEffect {
      * Displays a single particle which flies into a determined direction and is only visible for the specified players
      *
      * @param direction Direction of the particle
-     * @param speed Display speed of the particle
-     * @param center Center location of the effect
-     * @param players Receivers of the effect
+     * @param speed     Display speed of the particle
+     * @param center    Center location of the effect
+     * @param players   Receivers of the effect
      * @throws ParticleVersionException If the particle effect is not supported by the server version
-     * @throws ParticleDataException If the particle effect requires additional data
+     * @throws ParticleDataException    If the particle effect requires additional data
      * @throws IllegalArgumentException If the particle effect is not directional or if it requires water and none is at the center location
      * @see #display(Vector, float, Location, List)
      */
@@ -698,12 +695,12 @@ public enum ParticleEffect {
     /**
      * Displays a single particle which is colored and only visible for all players within a certain range in the world of @param center
      *
-     * @param color Color of the particle
+     * @param color  Color of the particle
      * @param center Center location of the effect
-     * @param range Range of the visibility
+     * @param range  Range of the visibility
      * @throws ParticleVersionException If the particle effect is not supported by the server version
-     * @throws ParticleColorException If the particle effect is not colorable or the color type is incorrect
-     * @see ParticlePacket#ParticlePacket(ParticleEffect, ParticleColor, boolean)
+     * @throws ParticleColorException   If the particle effect is not colorable or the color type is incorrect
+     * @see ParticlePacket#ParticlePacket(Particles, ParticleColor, boolean)
      * @see ParticlePacket#sendTo(Location, double)
      */
     public void display(ParticleColor color, Location center, double range) throws ParticleVersionException, ParticleColorException {
@@ -722,12 +719,12 @@ public enum ParticleEffect {
     /**
      * Displays a single particle which is colored and only visible for the specified players
      *
-     * @param color Color of the particle
-     * @param center Center location of the effect
+     * @param color   Color of the particle
+     * @param center  Center location of the effect
      * @param players Receivers of the effect
      * @throws ParticleVersionException If the particle effect is not supported by the server version
-     * @throws ParticleColorException If the particle effect is not colorable or the color type is incorrect
-     * @see ParticlePacket#ParticlePacket(ParticleEffect, ParticleColor, boolean)
+     * @throws ParticleColorException   If the particle effect is not colorable or the color type is incorrect
+     * @see ParticlePacket#ParticlePacket(Particles, ParticleColor, boolean)
      * @see ParticlePacket#sendTo(Location, List)
      */
     public void display(ParticleColor color, Location center, List<Player> players) throws ParticleVersionException, ParticleColorException {
@@ -746,11 +743,11 @@ public enum ParticleEffect {
     /**
      * Displays a single particle which is colored and only visible for the specified players
      *
-     * @param color Color of the particle
-     * @param center Center location of the effect
+     * @param color   Color of the particle
+     * @param center  Center location of the effect
      * @param players Receivers of the effect
      * @throws ParticleVersionException If the particle effect is not supported by the server version
-     * @throws ParticleColorException If the particle effect is not colorable or the color type is incorrect
+     * @throws ParticleColorException   If the particle effect is not colorable or the color type is incorrect
      * @see #display(ParticleColor, Location, List)
      */
     public void display(ParticleColor color, Location center, Player... players) throws ParticleVersionException, ParticleColorException {
@@ -760,16 +757,16 @@ public enum ParticleEffect {
     /**
      * Displays a particle effect which requires additional data and is only visible for all players within a certain range in the world of @param center
      *
-     * @param data Data of the effect
+     * @param data    Data of the effect
      * @param offsetX Maximum distance particles can fly away from the center on the x-axis
      * @param offsetY Maximum distance particles can fly away from the center on the y-axis
      * @param offsetZ Maximum distance particles can fly away from the center on the z-axis
-     * @param speed Display speed of the particles
-     * @param amount Amount of particles
-     * @param center Center location of the effect
-     * @param range Range of the visibility
+     * @param speed   Display speed of the particles
+     * @param amount  Amount of particles
+     * @param center  Center location of the effect
+     * @param range   Range of the visibility
      * @throws ParticleVersionException If the particle effect is not supported by the server version
-     * @throws ParticleDataException If the particle effect does not require additional data or if the data type is incorrect
+     * @throws ParticleDataException    If the particle effect does not require additional data or if the data type is incorrect
      * @see ParticlePacket
      * @see ParticlePacket#sendTo(Location, double)
      */
@@ -789,16 +786,16 @@ public enum ParticleEffect {
     /**
      * Displays a particle effect which requires additional data and is only visible for the specified players
      *
-     * @param data Data of the effect
+     * @param data    Data of the effect
      * @param offsetX Maximum distance particles can fly away from the center on the x-axis
      * @param offsetY Maximum distance particles can fly away from the center on the y-axis
      * @param offsetZ Maximum distance particles can fly away from the center on the z-axis
-     * @param speed Display speed of the particles
-     * @param amount Amount of particles
-     * @param center Center location of the effect
+     * @param speed   Display speed of the particles
+     * @param amount  Amount of particles
+     * @param center  Center location of the effect
      * @param players Receivers of the effect
      * @throws ParticleVersionException If the particle effect is not supported by the server version
-     * @throws ParticleDataException If the particle effect does not require additional data or if the data type is incorrect
+     * @throws ParticleDataException    If the particle effect does not require additional data or if the data type is incorrect
      * @see ParticlePacket
      * @see ParticlePacket#sendTo(Location, List)
      */
@@ -818,16 +815,16 @@ public enum ParticleEffect {
     /**
      * Displays a particle effect which requires additional data and is only visible for the specified players
      *
-     * @param data Data of the effect
+     * @param data    Data of the effect
      * @param offsetX Maximum distance particles can fly away from the center on the x-axis
      * @param offsetY Maximum distance particles can fly away from the center on the y-axis
      * @param offsetZ Maximum distance particles can fly away from the center on the z-axis
-     * @param speed Display speed of the particles
-     * @param amount Amount of particles
-     * @param center Center location of the effect
+     * @param speed   Display speed of the particles
+     * @param amount  Amount of particles
+     * @param center  Center location of the effect
      * @param players Receivers of the effect
      * @throws ParticleVersionException If the particle effect is not supported by the server version
-     * @throws ParticleDataException If the particle effect does not require additional data or if the data type is incorrect
+     * @throws ParticleDataException    If the particle effect does not require additional data or if the data type is incorrect
      * @see #display(ParticleData, float, float, float, float, int, Location, List)
      */
     public void display(ParticleData data, float offsetX, float offsetY, float offsetZ, float speed, int amount, Location center, Player... players) throws ParticleVersionException, ParticleDataException {
@@ -837,13 +834,13 @@ public enum ParticleEffect {
     /**
      * Displays a single particle which requires additional data that flies into a determined direction and is only visible for all players within a certain range in the world of @param center
      *
-     * @param data Data of the effect
+     * @param data      Data of the effect
      * @param direction Direction of the particle
-     * @param speed Display speed of the particles
-     * @param center Center location of the effect
-     * @param range Range of the visibility
+     * @param speed     Display speed of the particles
+     * @param center    Center location of the effect
+     * @param range     Range of the visibility
      * @throws ParticleVersionException If the particle effect is not supported by the server version
-     * @throws ParticleDataException If the particle effect does not require additional data or if the data type is incorrect
+     * @throws ParticleDataException    If the particle effect does not require additional data or if the data type is incorrect
      * @see ParticlePacket
      * @see ParticlePacket#sendTo(Location, double)
      */
@@ -863,13 +860,13 @@ public enum ParticleEffect {
     /**
      * Displays a single particle which requires additional data that flies into a determined direction and is only visible for the specified players
      *
-     * @param data Data of the effect
+     * @param data      Data of the effect
      * @param direction Direction of the particle
-     * @param speed Display speed of the particles
-     * @param center Center location of the effect
-     * @param players Receivers of the effect
+     * @param speed     Display speed of the particles
+     * @param center    Center location of the effect
+     * @param players   Receivers of the effect
      * @throws ParticleVersionException If the particle effect is not supported by the server version
-     * @throws ParticleDataException If the particle effect does not require additional data or if the data type is incorrect
+     * @throws ParticleDataException    If the particle effect does not require additional data or if the data type is incorrect
      * @see ParticlePacket
      * @see ParticlePacket#sendTo(Location, List)
      */
@@ -889,13 +886,13 @@ public enum ParticleEffect {
     /**
      * Displays a single particle which requires additional data that flies into a determined direction and is only visible for the specified players
      *
-     * @param data Data of the effect
+     * @param data      Data of the effect
      * @param direction Direction of the particle
-     * @param speed Display speed of the particles
-     * @param center Center location of the effect
-     * @param players Receivers of the effect
+     * @param speed     Display speed of the particles
+     * @param center    Center location of the effect
+     * @param players   Receivers of the effect
      * @throws ParticleVersionException If the particle effect is not supported by the server version
-     * @throws ParticleDataException If the particle effect does not require additional data or if the data type is incorrect
+     * @throws ParticleDataException    If the particle effect does not require additional data or if the data type is incorrect
      * @see #display(ParticleData, Vector, float, Location, List)
      */
     public void display(ParticleData data, Vector direction, float speed, Location center, Player... players) throws ParticleVersionException, ParticleDataException {
@@ -910,7 +907,7 @@ public enum ParticleEffect {
      * @author DarkBlade12
      * @since 1.7
      */
-    public static enum ParticleProperty {
+    public enum ParticleProperty {
         /**
          * The particle effect requires water to be displayed
          */
@@ -926,11 +923,11 @@ public enum ParticleEffect {
         /**
          * The particle effect uses the offsets as color values
          */
-        COLORABLE;
+        COLORABLE
     }
 
     /**
-     * Represents the particle data for effects like {@link ParticleEffect#ITEM_CRACK}, {@link ParticleEffect#BLOCK_CRACK} and {@link ParticleEffect#BLOCK_DUST}
+     * Represents the particle data for effects like {@link Particles#ITEM_CRACK}, {@link Particles#BLOCK_CRACK} and {@link Particles#BLOCK_DUST}
      * <p>
      * This class is part of the <b>ParticleEffect Library</b> and follows the same usage conditions
      *
@@ -946,13 +943,13 @@ public enum ParticleEffect {
          * Construct a new particle data
          *
          * @param material Material of the item/block
-         * @param data Data value of the item/block
+         * @param data     Data value of the item/block
          */
         @SuppressWarnings("deprecation")
         public ParticleData(Material material, byte data) {
             this.material = material;
             this.data = data;
-            this.packetData = new int[] { material.getId(), data };
+            this.packetData = new int[]{ material.getId(), data };
         }
 
         /**
@@ -993,7 +990,7 @@ public enum ParticleEffect {
     }
 
     /**
-     * Represents the item data for the {@link ParticleEffect#ITEM_CRACK} effect
+     * Represents the item data for the {@link Particles#ITEM_CRACK} effect
      * <p>
      * This class is part of the <b>ParticleEffect Library</b> and follows the same usage conditions
      *
@@ -1005,7 +1002,7 @@ public enum ParticleEffect {
          * Construct a new item data
          *
          * @param material Material of the item
-         * @param data Data value of the item
+         * @param data     Data value of the item
          * @see ParticleData#ParticleData(Material, byte)
          */
         public ItemData(Material material, byte data) {
@@ -1014,7 +1011,7 @@ public enum ParticleEffect {
     }
 
     /**
-     * Represents the block data for the {@link ParticleEffect#BLOCK_CRACK} and {@link ParticleEffect#BLOCK_DUST} effects
+     * Represents the block data for the {@link Particles#BLOCK_CRACK} and {@link Particles#BLOCK_DUST} effects
      * <p>
      * This class is part of the <b>ParticleEffect Library</b> and follows the same usage conditions
      *
@@ -1026,7 +1023,7 @@ public enum ParticleEffect {
          * Construct a new block data
          *
          * @param material Material of the block
-         * @param data Data value of the block
+         * @param data     Data value of the block
          * @throws IllegalArgumentException If the material is not a block
          * @see ParticleData#ParticleData(Material, byte)
          */
@@ -1039,7 +1036,7 @@ public enum ParticleEffect {
     }
 
     /**
-     * Represents the color for effects like {@link ParticleEffect#SPELL_MOB}, {@link ParticleEffect#SPELL_MOB_AMBIENT}, {@link ParticleEffect#REDSTONE} and {@link ParticleEffect#NOTE}
+     * Represents the color for effects like {@link Particles#SPELL_MOB}, {@link Particles#SPELL_MOB_AMBIENT}, {@link Particles#REDSTONE} and {@link Particles#NOTE}
      * <p>
      * This class is part of the <b>ParticleEffect Library</b> and follows the same usage conditions
      *
@@ -1070,7 +1067,7 @@ public enum ParticleEffect {
     }
 
     /**
-     * Represents the color for effects like {@link ParticleEffect#SPELL_MOB}, {@link ParticleEffect#SPELL_MOB_AMBIENT} and {@link ParticleEffect#NOTE}
+     * Represents the color for effects like {@link Particles#SPELL_MOB}, {@link Particles#SPELL_MOB_AMBIENT} and {@link Particles#NOTE}
      * <p>
      * This class is part of the <b>ParticleEffect Library</b> and follows the same usage conditions
      *
@@ -1085,33 +1082,15 @@ public enum ParticleEffect {
         /**
          * Construct a new ordinary color
          *
-         * @param red Red value of the RGB format
+         * @param red   Red value of the RGB format
          * @param green Green value of the RGB format
-         * @param blue Blue value of the RGB format
+         * @param blue  Blue value of the RGB format
          * @throws IllegalArgumentException If one of the values is lower than 0 or higher than 255
          */
         public OrdinaryColor(int red, int green, int blue) throws IllegalArgumentException {
-            if (red < 0) {
-                throw new IllegalArgumentException("The red value is lower than 0");
-            }
-            if (red > 255) {
-                throw new IllegalArgumentException("The red value is higher than 255");
-            }
-            this.red = red;
-            if (green < 0) {
-                throw new IllegalArgumentException("The green value is lower than 0");
-            }
-            if (green > 255) {
-                throw new IllegalArgumentException("The green value is higher than 255");
-            }
-            this.green = green;
-            if (blue < 0) {
-                throw new IllegalArgumentException("The blue value is lower than 0");
-            }
-            if (blue > 255) {
-                throw new IllegalArgumentException("The blue value is higher than 255");
-            }
-            this.blue = blue;
+            this.red = Math.min(255, red);
+            this.green = Math.min(255, green);
+            this.blue = Math.min(255, blue);
         }
 
         /**
@@ -1182,7 +1161,7 @@ public enum ParticleEffect {
     }
 
     /**
-     * Represents the color for the {@link ParticleEffect#NOTE} effect
+     * Represents the color for the {@link Particles#NOTE} effect
      * <p>
      * This class is part of the <b>ParticleEffect Library</b> and follows the same usage conditions
      *
@@ -1332,14 +1311,14 @@ public enum ParticleEffect {
         /**
          * Construct a new particle packet
          *
-         * @param effect Particle effect
-         * @param offsetX Maximum distance particles can fly away from the center on the x-axis
-         * @param offsetY Maximum distance particles can fly away from the center on the y-axis
-         * @param offsetZ Maximum distance particles can fly away from the center on the z-axis
-         * @param speed Display speed of the particles
-         * @param amount Amount of particles
+         * @param effect       Particle effect
+         * @param offsetX      Maximum distance particles can fly away from the center on the x-axis
+         * @param offsetY      Maximum distance particles can fly away from the center on the y-axis
+         * @param offsetZ      Maximum distance particles can fly away from the center on the z-axis
+         * @param speed        Display speed of the particles
+         * @param amount       Amount of particles
          * @param longDistance Indicates whether the maximum distance is increased from 256 to 65536
-         * @param data Data of the effect
+         * @param data         Data of the effect
          * @throws IllegalArgumentException If the speed or amount is lower than 0
          * @see #initialize()
          */
@@ -1364,13 +1343,13 @@ public enum ParticleEffect {
         /**
          * Construct a new particle packet of a single particle flying into a determined direction
          *
-         * @param effect Particle effect
-         * @param direction Direction of the particle
-         * @param speed Display speed of the particle
+         * @param effect       Particle effect
+         * @param direction    Direction of the particle
+         * @param speed        Display speed of the particle
          * @param longDistance Indicates whether the maximum distance is increased from 256 to 65536
-         * @param data Data of the effect
+         * @param data         Data of the effect
          * @throws IllegalArgumentException If the speed is lower than 0
-         * @see #ParticleEffect(ParticleEffect, float, float, float, float, int, boolean, ParticleData)
+         * @see #ParticleEffect(Particles, float, float, float, float, int, boolean, ParticleData)
          */
         public ParticlePacket(ParticleEffect effect, Vector direction, float speed, boolean longDistance, ParticleData data) throws IllegalArgumentException {
             this(effect, (float) direction.getX(), (float) direction.getY(), (float) direction.getZ(), speed, 0, longDistance, data);
@@ -1379,10 +1358,10 @@ public enum ParticleEffect {
         /**
          * Construct a new particle packet of a single colored particle
          *
-         * @param effect Particle effect
-         * @param color Color of the particle
+         * @param effect       Particle effect
+         * @param color        Color of the particle
          * @param longDistance Indicates whether the maximum distance is increased from 256 to 65536
-         * @see #ParticleEffect(ParticleEffect, float, float, float, float, int, boolean, ParticleData)
+         * @see #ParticleEffect(Particles, float, float, float, float, int, boolean, ParticleData)
          */
         public ParticlePacket(ParticleEffect effect, ParticleColor color, boolean longDistance) {
             this(effect, color.getValueX(), color.getValueY(), color.getValueZ(), 1, 0, longDistance, null);
@@ -1403,7 +1382,7 @@ public enum ParticleEffect {
                 return;
             }
             try {
-                version = Integer.parseInt(Character.toString(Reflection.PackageType.getServerVersion().charAt(3)));
+                version = Integer.parseInt(Reflection.PackageType.getServerVersion().split("_")[1]);
                 if (version > 7) {
                     enumParticle = Reflection.PackageType.MINECRAFT_SERVER.getClass("EnumParticle");
                 }
@@ -1463,7 +1442,7 @@ public enum ParticleEffect {
                     Reflection.setValue(packet, true, "j", longDistance);
                     if (data != null) {
                         int[] packetData = data.getPacketData();
-                        Reflection.setValue(packet, true, "k", effect == ParticleEffect.ITEM_CRACK ? packetData : new int[] { packetData[0] | (packetData[1] << 12) });
+                        Reflection.setValue(packet, true, "k", effect == ParticleEffect.ITEM_CRACK ? packetData : new int[]{ packetData[0] | (packetData[1] << 12) });
                     }
                 }
                 Reflection.setValue(packet, true, "b", (float) center.getX());
@@ -1485,7 +1464,7 @@ public enum ParticleEffect {
          * @param center Center location of the effect
          * @param player Receiver of the packet
          * @throws PacketInstantiationException If instantion fails due to an unknown error
-         * @throws PacketSendingException If sending fails due to an unknown error
+         * @throws PacketSendingException       If sending fails due to an unknown error
          * @see #initializePacket(Location)
          */
         public void sendTo(Location center, Player player) throws PacketInstantiationException, PacketSendingException {
@@ -1500,7 +1479,7 @@ public enum ParticleEffect {
         /**
          * Sends the packet to all players in the list
          *
-         * @param center Center location of the effect
+         * @param center  Center location of the effect
          * @param players Receivers of the packet
          * @throws IllegalArgumentException If the player list is empty
          * @see #sendTo(Location center, Player player)
@@ -1518,7 +1497,7 @@ public enum ParticleEffect {
          * Sends the packet to all players in a certain range
          *
          * @param center Center location of the effect
-         * @param range Range in which players will receive the packet (Maximum range for particles is usually 16, but it can differ for some types)
+         * @param range  Range in which players will receive the packet (Maximum range for particles is usually 16, but it can differ for some types)
          * @throws IllegalArgumentException If the range is lower than 1
          * @see #sendTo(Location center, Player player)
          */
@@ -1551,7 +1530,7 @@ public enum ParticleEffect {
              * Construct a new version incompatible exception
              *
              * @param message Message that will be logged
-             * @param cause Cause of the exception
+             * @param cause   Cause of the exception
              */
             public VersionIncompatibleException(String message, Throwable cause) {
                 super(message, cause);
@@ -1573,7 +1552,7 @@ public enum ParticleEffect {
              * Construct a new packet instantiation exception
              *
              * @param message Message that will be logged
-             * @param cause Cause of the exception
+             * @param cause   Cause of the exception
              */
             public PacketInstantiationException(String message, Throwable cause) {
                 super(message, cause);
@@ -1595,7 +1574,7 @@ public enum ParticleEffect {
              * Construct a new packet sending exception
              *
              * @param message Message that will be logged
-             * @param cause Cause of the exception
+             * @param cause   Cause of the exception
              */
             public PacketSendingException(String message, Throwable cause) {
                 super(message, cause);
