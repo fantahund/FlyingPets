@@ -3,7 +3,6 @@ package be.feeps.epicpets.inventories;
 import java.util.HashMap;
 import java.util.List;
 
-import be.feeps.epicpets.EpicPetsPlayer;
 import be.feeps.epicpets.config.CacheConfig;
 import be.feeps.epicpets.utils.MessageUtil;
 import org.bukkit.Bukkit;
@@ -12,7 +11,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
@@ -44,6 +42,7 @@ public abstract class EpicInventory{
             public void onClick(InventoryClickEvent event){
                 if (event.getInventory() == null) return;
                 if (event.getCurrentItem() == null) return;
+                if (event.getCurrentItem().getType() == Material.AIR) return;
                 if (!(event.getWhoClicked() instanceof Player)) return;
 
                 Inventory inv = event.getInventory();

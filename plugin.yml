@@ -1,6 +1,6 @@
 name: EpicPets
 author: Feeps
-version: 0.3.1
+version: 0.4
 main: be.feeps.epicpets.Main
 description: Only Feeps know the reals pets
 commands:
