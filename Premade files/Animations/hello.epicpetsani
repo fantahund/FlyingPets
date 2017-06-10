@@ -1,0 +1,47 @@
+TypeItem NETHER_BRICK_ITEM
+NameItem &5Hello
+SlotItem 14
+Permission epicpets.animation.hello
+
+interpolate
+length 23
+frame 0
+Armorstand_Position 0.0 0.0 0.0 0.0
+Armorstand_Middle 0 0 0
+Armorstand_Right_Leg 0 0 0
+Armorstand_Left_Leg 0 0 0
+Armorstand_Left_Arm -180 0 0
+Armorstand_Right_Arm 0 0 0
+Armorstand_Head 0 0 2
+frame 5
+Armorstand_Position 0.0 0.0 0.0 0.0
+Armorstand_Middle 0 0 0
+Armorstand_Right_Leg 0 0 0
+Armorstand_Left_Leg 0 0 0
+Armorstand_Left_Arm -180 0 27.5
+Armorstand_Right_Arm 0 0 0
+Armorstand_Head 0 0 0
+frame 11
+Armorstand_Position 0.0 0.0 0.0 0.0
+Armorstand_Middle 0 0 0
+Armorstand_Right_Leg 0 0 0
+Armorstand_Left_Leg 0 0 0
+Armorstand_Left_Arm -180 0 55
+Armorstand_Right_Arm 0 0 0
+Armorstand_Head 0 0 -2
+frame 17
+Armorstand_Position 0.0 0.0 0.0 0.0
+Armorstand_Middle 0 0 0
+Armorstand_Right_Leg 0 0 0
+Armorstand_Left_Leg 0 0 0
+Armorstand_Left_Arm -180 0 27.5
+Armorstand_Right_Arm 0 0 0
+Armorstand_Head 0 0 0
+frame 22
+Armorstand_Position 0.0 0.0 0.0 0.0
+Armorstand_Middle 0 0 0
+Armorstand_Right_Leg 0 0 0
+Armorstand_Left_Leg 0 0 0
+Armorstand_Left_Arm -180 0 0
+Armorstand_Right_Arm 0 0 0
+Armorstand_Head 0 0 2

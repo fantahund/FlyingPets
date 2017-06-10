@@ -1,6 +1,7 @@
 package be.feeps.epicpets.particles.ParticlesList;
 
 import be.feeps.epicpets.particles.EpicParticles;
+import be.feeps.epicpets.utils.MathUtils;
 import be.feeps.epicpets.utils.ParticleEffect;
 import org.bukkit.entity.Player;
 import org.bukkit.util.Vector;
@@ -30,7 +31,7 @@ public class ParticlesSparks extends EpicParticles {
             else
                 up = true;
         }
-        double inc = (2 * Math.PI) / 100;
+        double inc = (2 * MathUtils.PI) / 100;
         double angle = step * inc;
         Vector v = new Vector();
         v.setX(Math.cos(angle) * 0.5);
