@@ -3,7 +3,9 @@ package be.feeps.epicpets.listener.events;
 import be.feeps.epicpets.EpicPetsPlayer;
 import be.feeps.epicpets.Main;
 import be.feeps.epicpets.config.CacheConfig;
+import be.feeps.epicpets.events.PlayerCreatePetEvent;
 import be.feeps.epicpets.utils.MessageUtil;
+import be.feeps.epicpets.utils.Sounds;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -11,6 +13,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.SignChangeEvent;
+import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.event.player.PlayerToggleSneakEvent;
 
 /**
@@ -33,9 +37,7 @@ public class OthersEvent implements Listener {
             }
             if (b.hasMetadata("setName")) {
                 if (input.length() > 0) {
-                    /**@input.length > 16 sert a déterminé si le nom du pet est plus grand 16*/
                     if(input.length() > 16){
-                        //Mettre le message dans la configuration message.yml
                         player.sendMessage(MessageUtil.translate(Main.getI().getMsgCfg().msgLongNameError));
                     }else{
                         cache.getData().set(player.getUniqueId().toString() + ".pet.name", input);
@@ -49,9 +51,7 @@ public class OthersEvent implements Listener {
             }
             if (b.hasMetadata("playerSkull")) {
                 if (input.length() > 0) {
-                    /**@input.length > 16 sert a déterminé si le nom du pet est plus grand 16*/
                     epicPetsPlayer.getPet().setPlayerHead(input);
-
                 }
             }
             event.setCancelled(true);
@@ -61,6 +61,7 @@ public class OthersEvent implements Listener {
 
         }
     }
+
     @EventHandler
     public void onPlayerToggleSneakEvent(PlayerToggleSneakEvent event) {
         Player player = event.getPlayer();
@@ -74,6 +75,33 @@ public class OthersEvent implements Listener {
                         epicPetsPlayer.getPet().getName().setCustomNameVisible(false);
                     }
                 }
+            }
+        }
+    }
+
+    @EventHandler
+    public void clickEvent(InventoryClickEvent event) {
+        EpicPetsPlayer epicPetsPlayer = EpicPetsPlayer.instanceOf((Player)event.getWhoClicked());
+        if (event.getInventory() == null) return;
+        if (event.getCurrentItem() == null) return;
+        if (!(event.getWhoClicked() instanceof Player)) return;
+        if (epicPetsPlayer.getEpicInv() == null) return;
+        if (!event.getInventory().getName().contains(epicPetsPlayer.getEpicInv().getInv().getName())) return;
+        if (event.getCurrentItem().getType() == Material.AIR) return;
+
+        event.setCancelled(true);
+        epicPetsPlayer.getEpicInv().onClick(event.getCurrentItem(), event.getSlot());
+        if(Main.getI().getMainCfg().enableSoundClickMenu){
+            ((Player) event.getWhoClicked()).playSound((event.getWhoClicked()).getLocation(), Sounds.CLICK.bukkitSound(), 10f, 1f);
+        }
+    }
+
+    @EventHandler
+    public void closeEvent(InventoryCloseEvent event) {
+        EpicPetsPlayer epicPetsPlayer = EpicPetsPlayer.instanceOf((Player) event.getPlayer());
+        if(epicPetsPlayer.getEpicInv() != null) {
+            if(epicPetsPlayer.getEpicInv().getInv().equals(event.getInventory())) {
+                epicPetsPlayer.getEpicInv().clear();
             }
         }
     }

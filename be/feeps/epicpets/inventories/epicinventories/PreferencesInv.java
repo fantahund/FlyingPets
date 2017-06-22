@@ -1,40 +1,28 @@
-package be.feeps.epicpets.inventories.epicpetsinv;
+package be.feeps.epicpets.inventories.epicinventories;
 
 import be.feeps.epicpets.EpicPermissions;
-import be.feeps.epicpets.EpicPetsPlayer;
 import be.feeps.epicpets.Main;
 import be.feeps.epicpets.config.CacheConfig;
-import be.feeps.epicpets.inventories.EpicInventory;
+import be.feeps.epicpets.inventories.EpicInventories;
 import be.feeps.epicpets.utils.ItemsUtil;
 import be.feeps.epicpets.utils.MessageUtil;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.Arrays;
 
 /**
- * Created by feeps on 10/04/2017.
+ * Created by feeps on 18/06/2017.
  */
-public class PreferencesInventory extends EpicInventory {
-
-    public PreferencesInventory(){
-        super( null);
+public class PreferencesInv extends EpicInventories{
+    public PreferencesInv(Player player){
+        super(player, MessageUtil.translate(Main.getI().getMsgCfg().invNamePreferences), 36);
+        this.create();
     }
 
     @Override
-    public String name() {
-        return MessageUtil.translate(Main.getI().getMsgCfg().invNamePreferences);
-    }
-
-    @Override
-    public int size() {
-        return 36;
-    }
-
-    @Override
-    public void contents(Player player, Inventory inv) {
+    public void create() {
         createItem(cache.getData().getBoolean(player.getUniqueId().toString() + ".pet.setSmall"), 20, Material.MUSHROOM_SOUP, "SizePet");
         createItem(cache.getData().getBoolean(player.getUniqueId().toString() + ".pet.showName"), 21, Material.NAME_TAG, "ShowName");
         createItem(cache.getData().getBoolean(player.getUniqueId().toString() + ".pet.setVisible"), 22, Material.POTION, "ShowArmorStand");
@@ -45,10 +33,9 @@ public class PreferencesInventory extends EpicInventory {
     }
 
     @Override
-    public void onClick(Player player, Inventory inv, ItemStack current, int slot) {
-        EpicPetsPlayer epicPetsPlayer = EpicPetsPlayer.instanceOf(player);
+    public void onClick(ItemStack current, int slot) {
         if (current.getType() == Material.ARROW) {
-            new MainInventory().open(player);
+            new TakeCareInv(player).openInv();
         }
         switch(slot){
             case 20:
@@ -85,7 +72,6 @@ public class PreferencesInventory extends EpicInventory {
         if(epicPetsPlayer.getPet() != null){
             epicPetsPlayer.getPet().updateInfo();
         }
-
     }
 
     public void createItem(boolean stat, int slot, Material mat, String name){
@@ -119,4 +105,5 @@ public class PreferencesInventory extends EpicInventory {
             return this.data;
         }
     }
+
 }

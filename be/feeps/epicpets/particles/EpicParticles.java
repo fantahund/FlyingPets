@@ -10,7 +10,7 @@ public abstract class EpicParticles {
     protected EpicPetsPlayer epicPetsPlayer;
 
 
-    public EpicParticles(EpicParticlesType type, Player player) {
+    public EpicParticles(Player player) {
         this.epicPetsPlayer = EpicPetsPlayer.instanceOf(player);
         this.epicPetsPlayer.setEpicParticles(this);
     }
@@ -19,18 +19,6 @@ public abstract class EpicParticles {
 
     public void stop(){
         this.epicPetsPlayer.setEpicParticles(null);
-    }
-
-    public enum EpicParticlesType {
-        RING,
-        HELIX,
-        SPARKS,
-        FROSTLORD,
-        LOVE;
-
-
-        EpicParticlesType() {}
-
     }
 
 }

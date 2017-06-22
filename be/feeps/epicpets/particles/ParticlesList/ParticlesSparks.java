@@ -16,7 +16,7 @@ public class ParticlesSparks extends EpicParticles {
     private int step;
 
     public ParticlesSparks(Player player){
-        super(EpicParticlesType.SPARKS, player);
+        super(player);
     }
 
     public void update() {
@@ -31,13 +31,13 @@ public class ParticlesSparks extends EpicParticles {
             else
                 up = true;
         }
-        double inc = (2 * MathUtils.PI) / 100;
-        double angle = step * inc;
+        float inc = (2 * MathUtils.PI) / 100;
+        float angle = step * inc;
         Vector v = new Vector();
-        v.setX(Math.cos(angle) * 0.5);
-        v.setZ(Math.sin(angle) * 0.5);
+        v.setX(MathUtils.cos(angle) * 0.5);
+        v.setZ(MathUtils.sin(angle) * 0.5);
 
-        ParticleEffect.VILLAGER_HAPPY.display(0,0,0,0,1, this.epicPetsPlayer.getPet().getPetLoc().clone().add(v).add(0, height, 0), 50);
+        ParticleEffect.VILLAGER_HAPPY.display(0,0,0,0,1, this.epicPetsPlayer.getPet().getPetLoc().clone().add(v).add(0, height, 0), 100);
         step += 4;
     }
 }

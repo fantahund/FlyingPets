@@ -52,7 +52,7 @@ public enum ColorSkull {
                 , inv, slot, MessageUtil.translate(getName()), Arrays.asList(new String[] { "" }));
     }
 
-    static String nameInCfg(String path){
+    private static String nameInCfg(String path){
         return MessageUtil.translate(Main.getI().getMsgCfg().invColorSelector.get(path));
     }
 

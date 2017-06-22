@@ -12,13 +12,16 @@ import java.util.List;
 /**
  * Created by feeps on 4/04/17.
  */
-public class ItemsUtil {
+public final class ItemsUtil {
     public static void add(ItemStack item, Inventory inv, int Slot, String name, List<String> lore) {
         ItemMeta meta = item.getItemMeta();
-        meta.setDisplayName(name);
-        meta.setLore(lore);
-        item.setItemMeta(meta);
 
+        if(name != null)
+            meta.setDisplayName(name);
+        if(lore != null)
+            meta.setLore(lore);
+
+        item.setItemMeta(meta);
         inv.setItem(Slot, item);
     }
 
@@ -31,6 +34,4 @@ public class ItemsUtil {
         item.setItemMeta(meta);
         return item;
     }
-
-    //Example d'utilisation : Items.add(new ItemStack(Material.BED, 1), Navigateur, 4, "Ex", Arrays.asList(new String[] { "TEST", "BLABLA" }));
 }

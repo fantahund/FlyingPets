@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by feeps on 5/04/17.
  */
-public class MessageUtil {
+public final class MessageUtil {
 
     public static String translate(String message) {
         return ChatColor.translateAlternateColorCodes('&', message);

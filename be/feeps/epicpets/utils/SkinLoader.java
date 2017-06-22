@@ -14,7 +14,7 @@ import java.util.UUID;
 /**
  * Created by feeps on 3/04/17.
  */
-public class SkinLoader {
+public final class SkinLoader {
 
     public static ItemStack getCustomSkull(String url) {
         ItemStack head = new ItemStack(Material.SKULL_ITEM, 1, (short)3);

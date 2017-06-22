@@ -29,7 +29,7 @@ public class SkinsConfig {
             locationFile = new File(plugin.getDataFolder(), "textures.yml");
         }
         locationFileData = YamlConfiguration.loadConfiguration(locationFile);
-        // Looks for defaults in the jar
+
         Reader defConfigStream = new InputStreamReader(plugin.getResource("textures.yml"));
         if (defConfigStream != null) {
             YamlConfiguration defConfig = YamlConfiguration.loadConfiguration(defConfigStream);

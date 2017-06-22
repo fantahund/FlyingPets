@@ -12,12 +12,16 @@ public enum EpicPermissions {
     REMOVEPET("epicpets.pet.remove"),
     RENAMEPET("epicpets.pet.rename"),
     GIVEITEM("epicpets.pet.item"),
+    RESURRECT("epicpets.pet.resurrect"),
+
+    SETFOODS("epicpets.commands.setfoods"),
 
     OPENGUIMAIN("epicpets.gui.open.main"),
     OPENGUIANIMATIONS("epicpets.gui.open.animations"),
     OPENGUIPREFERENCES("epicpets.gui.open.preferences"),
     OPENGUIPARTICLES("epicpets.gui.open.particles"),
-    OPENGUIEDIT("epicpets.gui.open.edit"),
+    OPENGUITAKECARE("epicpets.gui.open.takecare"),
+    OPENGUIFOODS("epicpets.gui.open.foods"),
 
     OPENGUIHELMET("epicpets.gui.open.helmet"),
     OPENGUICHESTPLATE("epicpets.gui.open.chestplate"),
@@ -49,7 +53,7 @@ public enum EpicPermissions {
         if(player.hasPermission(this.perm)){
             return true;
         }else{
-            player.sendMessage(MessageUtil.translate(Main.getI().getMsgCfg().noPerm));
+            player.sendMessage(MessageUtil.translate(Main.getI().getMsgCfg().prefix + Main.getI().getMsgCfg().noPerm));
             return false;
         }
     }

@@ -1,40 +1,29 @@
-package be.feeps.epicpets.inventories.epicpetsinv;
+package be.feeps.epicpets.inventories.epicinventories;
 
-import be.feeps.epicpets.EpicPetsPlayer;
 import be.feeps.epicpets.Main;
 import be.feeps.epicpets.config.SkinsConfig;
 import be.feeps.epicpets.inventories.ColorSkull;
-import be.feeps.epicpets.inventories.EpicInventory;
+import be.feeps.epicpets.inventories.EpicInventories;
 import be.feeps.epicpets.utils.MessageUtil;
 import be.feeps.epicpets.utils.SkinLoader;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
-
 /**
- * Created by feeps on 13/04/2017.
+ * Created by feeps on 18/06/2017.
  */
-public class ColorsSelectorInv extends EpicInventory {
+public class ColorsSelectorInv extends EpicInventories {
+    private Material currentItem;
 
-    //Pour get le joueur this.player
-    public ColorsSelectorInv(Material currentItem){
-        super(currentItem);
+    public ColorsSelectorInv(Player player, Material currentItem){
+        super(player, MessageUtil.translate(Main.getI().getMsgCfg().invNameColorSelector), 45);
+        this.currentItem = currentItem;
+        this.create();
     }
 
     @Override
-    public String name() {
-        return MessageUtil.translate(Main.getI().getMsgCfg().invNameColorSelector);
-    }
-
-    @Override
-    public int size() {
-        return 45;
-    }
-
-    @Override
-    public void contents(Player player, Inventory inv) {
+    public void create() {
         this.setItem(new ItemStack(this.currentItem), 4,
                 MessageUtil.translate(Main.getI().getMsgCfg().invColorSelector.get("CurrentItem")), null);
 
@@ -64,11 +53,10 @@ public class ColorsSelectorInv extends EpicInventory {
     }
 
     @Override
-    public void onClick(Player player, Inventory inv, ItemStack current, int slot) {
-        EpicPetsPlayer epicPetsPlayer = EpicPetsPlayer.instanceOf(player);
+    public void onClick(ItemStack current, int slot) {
         switch(current.getType()){
             case ARROW:
-                new MainInventory().open(player);
+                new MainInv(player).openInv();
                 break;
             case BARRIER:
                 if (this.currentItem == Material.LEATHER_HELMET) {
@@ -104,7 +92,7 @@ public class ColorsSelectorInv extends EpicInventory {
                 break;
             case SKULL_ITEM:
                 if(current.getItemMeta().getDisplayName().equalsIgnoreCase(MessageUtil.translate(Main.getI().getMsgCfg().invColorSelector.get("Skins")))){
-                    new SkullInventory().open(player);
+                    new SkullInv(player).openInv();
                 }
 
                 if(epicPetsPlayer.getPet() != null){

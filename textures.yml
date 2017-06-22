@@ -4,178 +4,214 @@ skins:
     permission: epicpets.skin.bee
     texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTQ3MzIyZjgzMWUzYzE2OGNmYmQzZTI4ZmU5MjUxNDRiMjYxZTc5ZWIzOWM3NzEzNDlmYWM1NWE4MTI2NDczIn19fQ
     slot: '0'
+    price: '200'
   '2':
     name: '&6Bird'
     permission: epicpets.skin.bird
     texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjk2MjczNzBmZWRiZDBiYWU3YmFlNmQ2Zjg1ODM1NTU3NjM3ODljMWJkOTNmYTYzOWNmYTNkZmQ0OGUzNDg1MCJ9fX0
     slot: '1'
+    price: '200'
   '3':
     name: '&aTurtle'
     permission: epicpets.skin.turtle
     texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTJlNTQ4NDA4YWI3NWQ3ZGY4ZTZkNWQyNDQ2ZDkwYjZlYzYyYWE0ZjdmZWI3OTMwZDFlZTcxZWVmZGRmNjE4OSJ9fX0
     slot: '2'
+    price: '200'
   '4':
     name: '&7Cat'
     permission: epicpets.skin.cat
     texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMmYxODA2NDE3YzE2Y2NkYzMzOWQ0NGQzMjgyNTFhOGQxYmJlYWI5NDVmODdhODViNDhlNGIxMTRmZGVmYiJ9fX0=
     slot: '3'
+    price: '200'
   '5':
     name: '&cRainbow Dash'
     permission: epicpets.skin.rainbowdash
     texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTQ3OGNlZmVkOWUxYzhiNzMzNmFiM2E2YzYyMjYzZTk4OGU4ODcyYWU2MTg1ZjY0NzVmNTU3YzRjOWMyZiJ9fX0=
     slot: '4'
+    price: '200'
   '6':
     name: '&6Lion'
     permission: epicpets.skin.lion
     texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYzY2OTdlMjViODgwY2I3ZWU1YjgzY2EyZjVjMjhmNjI4YWEyOTMzZTVkNDMwZDI2ODMxNmY4NTRlNTA0ODhiIn19fQ==
     slot: '5'
+    price: '200'
   '7':
     name: '&2Frog'
     permission: epicpets.skin.frog
     texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjU1NGU2N2ZkMmYzOTIzMmYwOTdkMGYyYWRhNzFiZTdkYjhkNjA4MGVhN2ZkYTYzNTA2YWI4MWQ0NzJjNWViIn19fQ==
     slot: '6'
+    price: '200'
   '8':
     name: '&fSnail'
     permission: epicpets.skin.snail
     texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTRjNjUzMTJmMmM1MzlmNjgyZDFkNWM0ODJjOWY0OTRjOWM5MWM1MzhjNWUyYjg4N2JkZmY4ZmNkOWMzZiJ9fX0=
     slot: '7'
+    price: '200'
   '9':
     name: '&6Rabbit'
     permission: epicpets.skin.rabbit
     texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvY2VjMjQyZTY2N2FlZTQ0NDkyNDEzZWY0NjFiODEwY2FjMzU2Yjc0ZDg3MThlNWNlYzFmODkyYTZiNDNlNWUxIn19fQ==
     slot: '8'
+    price: '200'
   '10':
     name: '&6Squirrel'
     permission: epicpets.skin.squirrel
     texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjYzYWY1ZjNhNWU5M2VkMmY4NTkxNGI5ZGUyYWExNTlkZTE3ODcwZmVhMGZiMTQ2NDQ0YzczM2EzYWJlOWUifX19
     slot: '9'
+    price: '200'
   '11':
     name: '&6Reindeer'
     permission: epicpets.skin.reindeer
     texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDQ5MjdjZTViYTIyYWQxZTc1N2Q2YTMzM2UyNzViMzZkYTFhODQzNmZjZWYwNzczNDBhYjUzZTNmYiJ9fX0=
     slot: '10'
+    price: '200'
   '12':
     name: '&6Tiger'
     permission: epicpets.skin.tiger
     texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYmE4OTlhNTQzMTRjODkzYzk2ZWJkNGIxNzU3ODVlODgzNThhMjZhNGU5NzNkM2U1MzgyMTM4NDM1YzEyZSJ9fX0=
     slot: '11'
+    price: '200'
   '13':
     name: '&7Elephant'
     permission: epicpets.skin.elephant
     texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODVlZjY3ODVlMGUzZjBhMWRjOGFmYWRhNzk4NjhmNTU5NTQ1NzI2ZjI5NTQ2YjFjYTlhNjM2M2FjNWZhZjMifX19
     slot: '12'
+    price: '200'
   '14':
     name: '&0Raccoon'
     permission: epicpets.skin.raccoon
     texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNjJjNjRmMjUxNzM2Yzk5MmRmNDhjOGM0YjI4YjQyZWE0MTI1ZWUyOTVjOWY5YmRjZmUwNDliZWZkZWE0MmVlIn19fQ==
     slot: '13'
+    price: '200'
   '15':
     name: '&eDog'
     permission: epicpets.skin.dog
     texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZmJhZGE2ZGM4NTI3YTYzNDdjYzMwMzM2NWQ2NGQ0ZWU5NzYxMTU2MmRlODRiM2Y3MTNjNzllMzg3NWI0MGM1In19fQ==
     slot: '14'
+    price: '200'
   '16':
     name: '&fPanda'
     permission: epicpets.skin.panda
     texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDhjZGQ0ZjI4NTYzMmMyNWQ3NjJlY2UyNWY0MTkzYjk2NmMyNjQxYjE1ZDliZGJjMGExMTMwMjNkZTc2YWIifX19
     slot: '15'
+    price: '200'
   '17':
     name: '&cParrot'
     permission: epicpets.skin.parrot
     texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzA3ZGFiMmNiZWJlYTUzOWI2NGQ1YWQyNDZmOWNjYzFmY2RhN2FhOTRiODhlNTlmYzI4Mjk4NTJmNDYwNzEifX19
     slot: '16'
+    price: '200'
   '18':
     name: '&7Shark'
     permission: epicpets.skin.shark
     texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzQ0N2U3ZTgyNzFmNTczOTY5ZjJkYTczNGM0MTI1ZjkzYjI4NjRmYjUxZGI2OWRhNWVjYmE3NDg3Y2Y4ODJiMCJ9fX0=
     slot: '17'
+    price: '200'
   '19':
     name: '&4Phoenix'
     permission: epicpets.skin.phoenix
     texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjNhYWY3YjFhNzc4OTQ5Njk2Y2I5OWQ0ZjA0YWQxYWE1MThjZWVlMjU2YzcyZTVlZDY1YmZhNWMyZDg4ZDllIn19fQ==
     slot: '18'
+    price: '200'
   '20':
     name: '&7Dog with a necklace'
     permission: epicpets.skin.dognecklace
     texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjQ5NmE5NGQ5ZjUxZWZmMTQ0MmMxYmJjNzk2Y2RhM2Q3YTNmMDIxOTk4NmMyZTljODFhODFhOWZiN2E5OGE2In19fQ==
     slot: '19'
+    price: '200'
   '21':
     name: '&6Wolf'
     permission: epicpets.skin.wolf
     texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjliNmU3MWRjOTBhZmJhZTE3ZTkxNjk1ZTcxMDlhOTlhNjkwN2I1YzMzYTM1MWQxZGI1ZGNkZWE1OGRiMCJ9fX0=
     slot: '20'
+    price: '200'
   '22':
     name: '&dPig'
     permission: epicpets.skin.pig
     texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOGRiZDg0OGJjMzg5MWFjMzI5OTVjNTdmMjcxZjIzN2ExODEwYmNmNWJjNWZlNmFhYzkxNTlmNWIxZDIzOSJ9fX0=
     slot: '21'
+    price: '200'
   '23':
     name: '&6Fox'
     permission: epicpets.skin.fox
     texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTZkYjdkNTA3Mzg5YTE0YmJlYzM5ZGU2OTIyMTY1YjMyZDQzNjU3YmNiNmFhZjRiNTE4MjgyNWIyMmI0In19fQ==
     slot: '22'
+    price: '200'
   '24':
     name: '&fPenguin'
     permission: epicpets.skin.penguin
     texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZWVhNzU5Zjk3OWI5YjhlYTgzMWNhN2UyZDY2ZGYxNDgyOTNmMWE1MTQ3OTgzYjUyYzQ4ZWZlMmMzMTVlIn19fQ==
     slot: '23'
+    price: '200'
   '25':
     name: '&8Rat'
     permission: epicpets.skin.rat
     texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTdjYzU2YzhmODUyNjM2OGY3MjM3YWFlMzg5NGYwZGY3MGE0NGE3M2I4NzIwYWM1MTcxYjM4OWM2NmIyMjJmIn19fQ==
     slot: '24'
+    price: '200'
   '26':
     name: '&fAstronaut'
     permission: epicpets.skin.astronaut
     texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZmI4Nzg2NTJkMDRmYjNkODMzNTZmMzVmN2U4ZDk2NWZjNGRjODRjNmY5MmM5ZTc5MmIyNmQxMzUzOTk3NzM4In19fQ==
     slot: '25'
+    price: '200'
   '27':
     name: '&6Carved pumpkin'
     permission: epicpets.skin.carvedpumpkin
     texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDhjYjI2MzY2YTU0NzliNWJiYzdjYTBkNGNkNDg3ODYzNzFhMWM0MTE2YWNlZDg5YjQ2NGMyYjNlNzM0YTAifX19
     slot: '26'
+    price: '200'
   '28':
     name: '&cValentine bear'
     permission: epicpets.skin.valentinebear
     texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYmZiY2FlNmRmNjlkNTU1MWNhZWEzZjkzNTRiNDEyOWY2ZWNiZmRiNWM1NzYxNjZiYzE5YzRjMzY3MTUxNmQyIn19fQ==
     slot: '27'
+    price: '200'
   '29':
     name: '&eGirrafe'
     permission: epicpets.skin.girrafe
     texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTZkZDdiYmNlYWMxMzQ2NDE4Njg0YjFmYTgzMzc3ZDU3OTZjZjMxNTRkYjI5OWYyZDk5OTFiOTZlM2MzZDk5In19fQ==
     slot: '28'
+    price: '200'
   '30':
     name: '&6Turkey'
     permission: epicpets.skin.turkey
     texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODBmNjljMWQ2MTFkNjQ3MjI4NjZmNTk5MWRlM2JiZDdjNmY3ZjA1ODVjNWVjZjg4YmRiNWY2YWZiNGM3OGQifX19
     slot: '29'
+    price: '200'
   '31':
     name: '&eChicken'
     permission: epicpets.skin.chicken
     texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTMzOGRiZGRhYmQxNGM3MTMyODMyM2UxODg2OTM3M2M5Yzg4ZDI0MTQ5MjhmM2M3NjExM2VlM2MzZDQ5OTRhIn19fQ==
     slot: '30'
+    price: '200'
   '32':
     name: '&cWild boar'
     permission: epicpets.skin.wildboar
     texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvY2E2N2JmYWRhMjZiZmRmOGI3YTUyYmIyOTJmZWRlOTgzZDY5YjRmMTc1YzA3OTIyNzkxNDk0N2U4YTVmODJmIn19fQ==
     slot: '31'
+    price: '200'
   '33':
     name: '&2Lizard'
     permission: epicpets.skin.lizard
     texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOWRhMjgxM2Q0ZjVhY2Q2OWVkNTkwYzFkOGE0NDJiNTk1NTE5ZGNiYzBlMTcxOThhZGZhYWFhZjE1Zjg5YjAifX19
     slot: '32'
+    price: '200'
   '34':
     name: '&6Hedgehog'
     permission: epicpets.skin.hedgehog
     texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNjIwMTg4YzhjZjRhYzE1ZTE2OTMxYWExMWU5NGVjZDhiNmQ5ZmEwNzY1MzVjMTdiYjIyNjg2MmMxNWEzNzFiIn19fQ==
     slot: '33'
+    price: '200'
   '35':
     name: '&eDeer'
     permission: epicpets.skin.deer
     texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGM4NTFjYjZlODk5NWQyNmY1M2RiYjIxOWFkZTI3YWY5ODNkMzkyYmFiZTNiYTdmN2NkZTI0YTg4YWE2NThkIn19fQ==
     slot: '34'
+    price: '200'
   '36':
     name: '&eChick'
     permission: epicpets.skin.chick
     texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTRkODE2YTQ3NWIzZjMxM2I2MjBkNjViZjkzNTg5MzFiNDZhZjljOGY0ZTdjOWFlNjQ3MDg4ODBiZWE2YmUifX19
     slot: '35'
+    price: '200'

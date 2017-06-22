@@ -49,4 +49,5 @@ public class EpicAnimations {
         return this.animation;
     }
 
+
 }

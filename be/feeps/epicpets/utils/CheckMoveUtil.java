@@ -10,17 +10,17 @@ import java.util.List;
 /**
  * Created by feeps on 07/06/2017.
  */
-public class CheckMoveUtil {
+public final class CheckMoveUtil {
     private static List<Entity> currentlyMoving = new ArrayList();
     private static final HashMap<Entity, Location> lastLocation = new HashMap();
 
     public static void checkEntity(Entity en) {
         Location currentloc = en.getLocation();
         Location lastLoc = lastLocation.get(en);
-        if (lastLocation.get(en) == null) {
-            lastLocation.put(en, currentloc);
-            lastLoc = lastLocation.get(en);
-        }
+
+        lastLocation.putIfAbsent(en, currentloc);
+        lastLoc = lastLocation.get(en);
+
         lastLocation.put(en, en.getLocation());
         if ((lastLoc.getX() != currentloc.getX()) || (lastLoc.getY() != currentloc.getY()) || (lastLoc.getZ() != currentloc.getZ())) {
             if (!currentlyMoving.contains(en)) {

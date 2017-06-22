@@ -12,7 +12,7 @@ import org.bukkit.metadata.FixedMetadataValue;
 /**
  * Created by feeps on 7/04/17.
  */
-public class SignsUtil {
+public final class SignsUtil {
     public static void openSign(Player p, Block b) {
         try {
             Object world = b.getWorld().getClass().getMethod("getHandle").invoke(b.getWorld());
@@ -35,10 +35,6 @@ public class SignsUtil {
 
     public static void setSign(Player player, String metaData) {
         Block b = SignsUtil.findAnAirBlock(player.getLocation());
-        if(b == null) {
-            player.sendMessage(ChatColor.RED + "No place");
-            return;
-        }
         b.setType(Material.SIGN_POST);
         SignsUtil.openSign(player, b);
         b.setMetadata(metaData, new FixedMetadataValue(Main.getI(), true));

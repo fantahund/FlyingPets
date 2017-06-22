@@ -161,6 +161,12 @@ public final class MathUtils {
     // ---
     static public Random random = new Random();
 
+    public static boolean elapsed(long from, long to)
+    {
+        return System.currentTimeMillis() - from >= to;
+    }
+
+
     /**
      * Returns a random number between 0 (inclusive) and the specified value (inclusive).
      */
@@ -212,6 +218,10 @@ public final class MathUtils {
 
     public static double randomDouble(double min, double max) {
         return Math.random() < 0.5 ? ((1 - Math.random()) * (max - min) + min) : (Math.random() * (max - min) + min);
+    }
+
+    public static byte toPackedByte(float var0) {
+        return (byte)((int)(var0 * 256.0F / 360.0F));
     }
 
     // ---

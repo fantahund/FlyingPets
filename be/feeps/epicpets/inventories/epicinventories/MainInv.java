@@ -1,47 +1,51 @@
-package be.feeps.epicpets.inventories.epicpetsinv;
+package be.feeps.epicpets.inventories.epicinventories;
 
 import be.feeps.epicpets.EpicPermissions;
-import be.feeps.epicpets.EpicPetsPlayer;
 import be.feeps.epicpets.Main;
 import be.feeps.epicpets.config.SkinsConfig;
 import be.feeps.epicpets.inventories.ColorSkull;
-import be.feeps.epicpets.inventories.EpicInventory;
+import be.feeps.epicpets.inventories.EpicInventories;
 import be.feeps.epicpets.pets.DefaultPet;
 import be.feeps.epicpets.utils.ItemsUtil;
 import be.feeps.epicpets.utils.MessageUtil;
-import be.feeps.epicpets.utils.SignsUtil;
 import be.feeps.epicpets.utils.SkinLoader;
+import be.feeps.epicpets.utils.VaultUtils;
+import org.apache.commons.lang.StringUtils;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
-/**
- * Created by feeps on 4/04/17.
- */
-public class MainInventory extends EpicInventory {
+import java.util.Arrays;
 
-    public MainInventory(){
-        super(null);
+/**
+ * Created by feeps on 18/06/2017.
+ */
+public class MainInv extends EpicInventories {
+    public MainInv(Player player){
+        super(player, MessageUtil.translate(Main.getI().getMsgCfg().invNameMain), 36);
+        this.create();
     }
+
+
     @Override
-    public String name() {
-        return MessageUtil.translate(Main.getI().getMsgCfg().invNameMain);
-    }
-    @Override
-    public int size() {
-        return 36;
-    }
-    @Override
-    public void contents(Player player,Inventory inv) {
-        EpicPetsPlayer epicPetsPlayer = EpicPetsPlayer.instanceOf(player);
-        if(epicPetsPlayer.getPet() != null){
+    public void create() {
+        if(this.epicPetsPlayer.getPet() != null){
             this.setItem(new ItemStack(Material.FERMENTED_SPIDER_EYE), 10, MessageUtil.translate(Main.getI().getMsgCfg().invMain.get("RemovePet")), null);
         }else{
-            this.setItem(new ItemStack(Material.NETHER_STAR), 10, MessageUtil.translate(Main.getI().getMsgCfg().invMain.get("SpawnPet")), null);
+            if(this.cache.getData().getBoolean(player.getUniqueId().toString() + ".pet.isDead")){
+                if(!VaultUtils.isEconNull()){
+                    this.setItem(new ItemStack(Material.GHAST_TEAR), 10, MessageUtil.translate(Main.getI().getMsgCfg().invMain.get("ResurrectPet")),
+                            Arrays.asList(MessageUtil.translate(Main.getI().getMsgCfg().price).replace("%price%", String.valueOf(Main.getI().getMainCfg().resurrectPrice))));
+                }else{
+                    this.setItem(new ItemStack(Material.GHAST_TEAR), 10, MessageUtil.translate(Main.getI().getMsgCfg().invMain.get("ResurrectPet")), null);
+                }
+            }else{
+                this.setItem(new ItemStack(Material.NETHER_STAR), 10, MessageUtil.translate(Main.getI().getMsgCfg().invMain.get("SpawnPet")), null);
+            }
+
         }
 
-        this.setItem(new ItemStack(Material.BOOK), 20, MessageUtil.translate(Main.getI().getMsgCfg().invMain.get("Edit")), null);
+        this.setItem(new ItemStack(Material.BOOK), 20, MessageUtil.translate(Main.getI().getMsgCfg().invMain.get("TakeCare")), null );
         this.setItem(new ItemStack(Material.GLOWSTONE_DUST), 16, MessageUtil.translate(Main.getI().getMsgCfg().invMain.get("Animations")), null);
         this.setItem(new ItemStack(Material.BLAZE_POWDER), 24, MessageUtil.translate(Main.getI().getMsgCfg().invMain.get("Particles")), null);
 
@@ -74,15 +78,27 @@ public class MainInventory extends EpicInventory {
                 this.setItem(ItemsUtil.createDyeLeather(Material.LEATHER_BOOTS, color.getName(), color.getColor()), 31, MessageUtil.translate(Main.getI().getMsgCfg().invMain.get("Boots")), null);
             }
         }
-
     }
+
     @Override
-    public void onClick(Player player, Inventory inv, ItemStack current, int slot) {
-        EpicPetsPlayer epicPetsPlayer = EpicPetsPlayer.instanceOf(player);
+    public void onClick(ItemStack current, int slot) {
         switch(current.getType()){
             case NETHER_STAR:
                 if(EpicPermissions.SPAWNPET.hasPerm(player)){
                     new DefaultPet(player);
+                    player.closeInventory();
+                }
+                break;
+            case GHAST_TEAR:
+                if(EpicPermissions.RESURRECT.hasPerm(player)){
+                    if(VaultUtils.withdrawMoney(player, Main.getI().getMainCfg().resurrectPrice)){
+                        this.cache.getData().set(this.player.getUniqueId().toString() + ".pet.foods", 100);
+                        this.cache.getData().set(this.player.getUniqueId().toString() + ".pet.isDead", false);
+                        this.cache.saveData();
+                        this.cache.reloadData();
+                        new DefaultPet(player);
+                        player.sendMessage(MessageUtil.translate(Main.getI().getMsgCfg().prefix + Main.getI().getMsgCfg().resurrectedPet));
+                    }
                     player.closeInventory();
                 }
                 break;
@@ -94,42 +110,42 @@ public class MainInventory extends EpicInventory {
                 break;
             case GLOWSTONE_DUST:
                 if(EpicPermissions.OPENGUIANIMATIONS.hasPerm(player)){
-                    new AnimationsInv().open(player);
+                    new AnimationsInv(player).openInv();
                 }
                 break;
             case BLAZE_POWDER:
                 if(EpicPermissions.OPENGUIPARTICLES.hasPerm(player)){
-                    new ParticlesInv().open(player);
+                    new ParticlesInv(player).openInv();
                 }
                 break;
             case BOOK:
-                if(EpicPermissions.OPENGUIEDIT.hasPerm(player)){
-                    new EditInv().open(player);
+                if(EpicPermissions.OPENGUITAKECARE.hasPerm(player)){
+                    new TakeCareInv(player).openInv();
                 }
                 break;
             case SKULL_ITEM:
                 if(EpicPermissions.OPENGUIHELMET.hasPerm(player)){
-                    new ColorsSelectorInv( Material.LEATHER_HELMET).open(player);
+                    new ColorsSelectorInv(player, Material.LEATHER_HELMET).openInv();
                 }
                 break;
             case LEATHER_HELMET:
                 if(EpicPermissions.OPENGUIHELMET.hasPerm(player)){
-                    new ColorsSelectorInv(Material.LEATHER_HELMET).open(player);
+                    new ColorsSelectorInv(player, Material.LEATHER_HELMET).openInv();
                 }
                 break;
             case LEATHER_CHESTPLATE:
                 if(EpicPermissions.OPENGUICHESTPLATE.hasPerm(player)){
-                    new ColorsSelectorInv(Material.LEATHER_CHESTPLATE).open(player);
+                    new ColorsSelectorInv(player, Material.LEATHER_CHESTPLATE).openInv();
                 }
                 break;
             case LEATHER_LEGGINGS:
                 if(EpicPermissions.OPENGUILEGGINGS.hasPerm(player)){
-                    new ColorsSelectorInv(Material.LEATHER_LEGGINGS).open(player);
+                    new ColorsSelectorInv(player, Material.LEATHER_LEGGINGS).openInv();
                 }
                 break;
             case LEATHER_BOOTS:
                 if(EpicPermissions.OPENGUIBOOTS.hasPerm(player)){
-                    new ColorsSelectorInv(Material.LEATHER_BOOTS).open(player);
+                    new ColorsSelectorInv(player, Material.LEATHER_BOOTS).openInv();
                 }
                 break;
         }
