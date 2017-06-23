@@ -24,7 +24,7 @@ public class OthersEvent implements Listener {
     protected CacheConfig cache = CacheConfig.getInstance();
 
     @EventHandler
-    public void onSignChange(final SignChangeEvent event) {
+    public void onSignChange(SignChangeEvent event) {
         final Block b = event.getBlock();
         Player player = event.getPlayer();
         EpicPetsPlayer epicPetsPlayer = EpicPetsPlayer.instanceOf(player);
@@ -38,7 +38,7 @@ public class OthersEvent implements Listener {
             if (b.hasMetadata("setName")) {
                 if (input.length() > 0) {
                     if(input.length() > 16){
-                        player.sendMessage(MessageUtil.translate(Main.getI().getMsgCfg().msgLongNameError));
+                        player.sendMessage(MessageUtil.translate(Main.getI().getMsgCfg().prefix + Main.getI().getMsgCfg().msgLongNameError));
                     }else{
                         cache.getData().set(player.getUniqueId().toString() + ".pet.name", input);
                         cache.saveData();
@@ -46,19 +46,19 @@ public class OthersEvent implements Listener {
                         epicPetsPlayer.getPet().setName(input);
                     }
                 } else {
-                    player.sendMessage(MessageUtil.translate(Main.getI().getMsgCfg().msgNoNameError));
+                    player.sendMessage(MessageUtil.translate(Main.getI().getMsgCfg().prefix + Main.getI().getMsgCfg().msgNoNameError));
                 }
-            }
-            if (b.hasMetadata("playerSkull")) {
+                event.setCancelled(true);
+                b.removeMetadata("setName", Main.getI());
+                b.setType(Material.AIR);
+            } else if (b.hasMetadata("playerSkull")) {
                 if (input.length() > 0) {
                     epicPetsPlayer.getPet().setPlayerHead(input);
                 }
+                event.setCancelled(true);
+                b.removeMetadata("playerSkull", Main.getI());
+                b.setType(Material.AIR);
             }
-            event.setCancelled(true);
-            b.removeMetadata("playerSkull", Main.getI());
-            b.removeMetadata("setName", Main.getI());
-            b.setType(Material.AIR);
-
         }
     }
 
