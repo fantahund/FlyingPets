@@ -3,14 +3,13 @@ package be.feeps.epicpets;
 import be.feeps.epicpets.commands.EpicCommands;
 import be.feeps.epicpets.config.MainConfig;
 import be.feeps.epicpets.config.MessageConfig;
+import be.feeps.epicpets.events.updater.Updater;
 import be.feeps.epicpets.setup.SetupFiles;
 import be.feeps.epicpets.setup.SetupListener;
-import be.feeps.epicpets.events.updater.Updater;
 import net.milkbowl.vault.economy.Economy;
 import net.milkbowl.vault.permission.Permission;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.fusesource.jansi.Ansi;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -50,6 +49,7 @@ public class Main extends JavaPlugin{
                 epicPetsPlayer.getPet().remove();
             }
         });
+        Main.getI().getServer().getScheduler().cancelTasks(this);
     }
 
     private boolean setupEconomy() {

@@ -1,6 +1,6 @@
 name: EpicPets
 author: Feeps
-version: 1.2
+version: 1.3
 main: be.feeps.epicpets.Main
 description: Only Feeps know the reals pets
 softdepend: [Vault]
@@ -8,4 +8,4 @@ commands:
     epicpets:
         usage: /<command>
         description: The epicpets commands
-        aliases: [ep]
+        aliases: [ep, pet, pets, epicpet]
