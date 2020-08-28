@@ -1,5 +1,6 @@
 # FlyingPets
 Previously EpicPets. But completely rewritten and abandoned.
+I wrote this code a long time ago so I publish it here
 
 I don't have time to continue this project.
 if you want to continue this project, fork it...
