@@ -1,4 +1,6 @@
-# FlyingPets
+# FlyingPets (in progress - not working)
+You can download development builds [from our Jenkins server](https://jenkins.fantacs.de/job/FlyingPets/).
+
 Previously EpicPets. But completely rewritten and abandoned.
 I wrote this code a long time ago so I publish it here
 I don't have time to continue this project.
